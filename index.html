@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #window {
+            box-sizing: border-box;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #body {
+            width: 400px;
+            overflow: hidden;  
+            position: relative;        
+        }
+        #wrapper {
+            display: flex;
+            transition: all 1s;
+            transform: translateX(-400px);
+        }
+        #pages {
+            text-align: center;
+            margin-top: 4px;
+        }
+        .pages{
+            border: 1px solid greenyellow;
+            padding: 3px 10px;
+            display: inline-block;
+            transition: all 1s;
+        }
+        .active {
+            background: blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+    <div id="window">
+        <div id="body">
+            <div id="wrapper">
+                <img src="./imgs/1.jpg" alt="">
+                <img src="./imgs/2.jpg" alt="">
+                <img src="./imgs/3.jpg" alt="">
+                <img src="./imgs/4.jpg" alt="">
+            </div>
+            <div id="pages">
+                <span class="pages active">1</span>
+                <span class="pages">2</span>
+                <span class="pages">3</span>
+                <span class="pages">4</span>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script src="main.js"></script>
+</html>
