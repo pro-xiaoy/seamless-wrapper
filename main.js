@@ -2,13 +2,13 @@ let wrapper = $('#wrapper');
 let imgs = $('#wrapper img');
 let current = 0;
 let pages = $('#pages span');
+var n = 0;
 
 let copyFirst = imgs.eq(0).clone(true);
 let copyLast = imgs.eq(imgs.length -1).clone(true);
 wrapper.append(copyFirst);
 wrapper.prepend(copyLast);
 
-var n = 0;
 var timer = setInterval(() => {
     changeWrappt(n);
     n = n+1;
@@ -16,6 +16,22 @@ var timer = setInterval(() => {
         n= 0
     }
 }, 2 * 1000);
+
+
+$('#body').on({
+    'mouseover': function() {
+        clearInterval(timer)
+    },
+    'mouseleave': function() {
+        timer = setInterval(() => {
+            changeWrappt(n);
+            n = n+1;
+            if(n > 3) {
+                n= 0
+            }
+        }, 2 * 1000);
+    }
+})
 
 function changeWrappt(index) {
     if(index === 0 && current === 3) {
