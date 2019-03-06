@@ -8,10 +8,16 @@ let copyLast = imgs.eq(imgs.length -1).clone(true);
 wrapper.append(copyFirst);
 wrapper.prepend(copyLast);
 
+var n = 0;
+var timer = setInterval(() => {
+    changeWrappt(n);
+    n = n+1;
+    if(n > 3) {
+        n= 0
+    }
+}, 2 * 1000);
 
-
-pages.on('click', function(e){
-    let index = $(this).index();
+function changeWrappt(index) {
     if(index === 0 && current === 3) {
         wrapper.css({
             'transform': `translateX(-${(imgs.length + 1) * 400}px)`
@@ -37,6 +43,11 @@ pages.on('click', function(e){
         })
     }
     pages.removeClass('active');
-    $(this).addClass('active');
-    current = index;
+    pages.eq(index).addClass('active');
+    current = index;   
+}
+
+pages.on('click', function(e){
+    let index = $(this).index();
+    changeWrappt(index);
 })
